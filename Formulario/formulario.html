@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <title>cadastro</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Formulário de Cadastro</h1>
+        <p>Preencha com suas Informações</p>
+    </div>
+    <form>
+        <fieldset>
+            <div>
+                <label for="nome">Nome Completo <span class="obrigatorio">*</span></label>
+                <input type="text" required name="nome" id="nome" maxlength="100"
+                    placeholder="Ex: João da silva barros">
+            </div>
+            <div>
+                <label for="email">E-mail <span class="obrigatorio">*</span></label>
+                <input type="email" required name="email" id="email" maxlength="100" placeholder="seuemail@dominio.com">
+            </div>
+        </fieldset>
+        <fieldset>
+            <div>
+                <label for="data_nascimento">Data de Nascimento <span class="obrigatorio">*</span></label>
+                <input type="date" required name="data_nascimento" id="data_nascimento">
+            </div>
+
+            <div>
+                <label for="telefone">Telefone </label>
+                <input type="tel" name="telefone" id="telefone" maxlength="15" placeholder="99 99999-9999">
+            </div>
+        </fieldset>
+        <fieldset>
+            <div>
+                <label for="senha">Senha <span class="obrigatorio">*</span></label>
+                <input type="password" required name="senha" id="senha">
+            </div>
+
+            <div>
+                <label for="repetir_senha">Repetir Senha <span class="obrigatorio">*</span></label>
+                <input type="password" required name="repetir_senha" id="repetir_senha">
+            </div>
+        </fieldset>
+        <fieldset>
+            <div>
+                <label for="descricao">Descrição </label>
+                <textarea></textarea>
+            </div>
+            <div>
+                <label for="numero">Número de 1 a 99 </label>
+                <input type="number" name="numero" id="numero">
+            </div>
+            <div>
+                <label for="peso">Peso </label>
+                <input type="number" name="peso" id="peso">
+            </div>
+            <div>
+                <label for="altura">Altura </label>
+                <input type="number" name="altura" id="altura">
+            </div>
+        </fieldset>
+
+        <fieldset>
+        <Legend>Gênero</Legend>
+            <div>
+                <label>
+                    <input type="radio" name="genero" id="radioMasculino" value="Masculino" checked>Masculino
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="genero" id="radioFeminino" value="Feminino">Feminino
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="genero" id="radioNenhum" value="Nenhum">Nenhum
+                </label>
+            </div>          
+        </fieldset>
+
+        <fieldset>
+            <Legend>Interesses</Legend>
+                <div>
+                    <label>
+                        <input type="checkbox" name="interesses" id="checkboxtecnologia" value="Tecnologia">Tecnologia
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="interesses" id="checkboxesportes" value="Esportes">Esportes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="interesses" id="checkboxgastronomia" value="Gastronomia">Gastronomia
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="interesses" id="checkboxviagens" value="Viagens">Viagens
+                    </label>
+                </div> 
+                <div>
+                    <label>
+                        <input type="checkbox" name="interesses" id="checkboxinvestimentos" value="Investimentos">Investimentos
+                    </label>
+                </div>        
+            </fieldset>
+            <br>
+            <button>Concluído</button>
+
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            var $Telefone = $("#telefone");
+            $Telefone.mask('00 00000-0000');
+        });
+        var $Nome = $("#nome");
+        $Nome.mask("#", {
+            maxlength: "100",
+            translation: {
+                '#': { pattern: /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/, recursive: true }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
