@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="titulo">Formulário de Cadastro</h1>
+        <p id="subtitulo">Preencha com suas Informações</p>
+    </div>
+    <form>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="nome"><strong>Nome Completo </strong><span class="obrigatorio">*</span></label>
+                <input type="text" required name="nome" id="nome" maxlength="100"
+                    placeholder="Ex: João da Silva Barros">
+            </div>
+            <div class="campo">
+                <label for="email"><strong>E-mail </strong><span class="obrigatorio">*</span></label>
+                <input type="email" required name="email" id="email" maxlength="100"
+                    placeholder="seu_email@dominio.com">
+            </div>
+            <div class="campo">
+                <label for="telefone"><strong>Telefone </strong></label>
+                <input type="tel" name="telefone" id="telefone" maxlength="15" placeholder="(99) 99999-9999">
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="data_nascimento"><strong>Data de Nascimento </strong><span
+                        class="obrigatorio">*</span></label>
+                <input type="date" required name="data_nascimento" id="data_nascimento">
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="senha"><strong>Senha </strong><span class="obrigatorio">*</span></label>
+                <input type="password" required name="senha" id="senha" placeholder="************">
+            </div>
+
+            <div class="campo">
+                <label for="repetir_senha"><strong>Repetir Senha </strong><span class="obrigatorio">*</span></label>
+                <input type="password" required name="repetir_senha" id="repetir_senha" placeholder="************">
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="descricao"><strong>Descrição </strong></label>
+                <textarea rows="3" style="width: 39.8em" id="descricao" name="descricao"></textarea>
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="numero"><strong>Número</strong></label>
+                <input type="number" name="numero" id="numero" min="1" max="99" placeholder="1 a 99">
+            </div>
+            <div class="campo">
+                <label for="peso"><strong>Peso </strong></label>
+                <input type="text" name="peso" id="peso" placeholder="Ex: 65.5">
+            </div>
+            <div class="campo">
+                <label for="altura"><strong>Altura </strong></label>
+                <input type="text" name="altura" id="altura" placeholder="Ex: 1.72">
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <Legend><strong>Gênero</strong></Legend>
+            <div class="campo">
+                <label>
+                    <input type="radio" name="genero" id="radioMasculino" value="Masculino" checked>Masculino
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="radio" name="genero" id="radioFeminino" value="Feminino">Feminino
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="radio" name="genero" id="radioNenhum" value="Nenhum">Nenhum
+                </label>
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <Legend><strong>Interesses</strong></Legend>
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="interesses" id="checkboxtecnologia" value="Tecnologia">Tecnologia
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="interesses" id="checkboxesportes" value="Esportes">Esportes
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="interesses" id="checkboxgastronomia" value="Gastronomia">Gastronomia
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="interesses" id="checkboxviagens" value="Viagens">Viagens
+                </label>
+            </div>
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="interesses" id="checkboxinvestimentos"
+                        value="Investimentos">Investimentos
+                </label>
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+            <button class="botao_enviar" type="submit">Concluído</button>
+        </fieldset>
+    </form>
+    <script>
+        $(document).ready(function () {
+            var $Telefone = $("#telefone");
+            $Telefone.mask('(00) 00000-0000');
+            var $Nome = $("#nome");
+            $Nome.mask("#", {
+                maxlength: "100",
+                translation: {
+                    '#': { pattern: /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/, recursive: true }
+                }
+            });
+            var $Peso = $("#peso");
+            $Peso.mask('########0.0', { reverse: true });
+            var $Altura = $("#altura");
+            $Altura.mask('########0.00', { reverse: true });
+        });
+    </script>
+</body>
+
+</html>
